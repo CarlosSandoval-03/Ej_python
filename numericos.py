@@ -76,7 +76,6 @@ def ejTrece(num):
         print(num,"es un numero Fibonacci")
     else: 
         print(num,"NO es un numero Fibonacci")
-
 ######## Pruebas Funciones ########
 #ejCinco(int(input("Ingrese el valor de A:")), int(input("Ingrese el valor de B:")))
 #ejSeis(int(input("Ingrese el valor de A:")), int(input("Ingrese el valor de B:")))
