@@ -60,21 +60,24 @@ def ejDoce(a,b,x):
     print("La derivada en el punto",x,"es",resultado)
 #13. Dado un natural, determinar si es un número de Fibonacci o no.
 def ejTrece(num):
-    def raizCuadrada(var):
-        x = 1.0
-        for k in range(1, 10):
-            x = (x + var/x)/2
-        return x
-    def cuadradoPerfecto(x): 
-        s = int(raizCuadrada(x)) 
-        return s*s == x 
-    def siNumero(n):  
-        return cuadradoPerfecto(5*n*n + 4) or cuadradoPerfecto(5*n*n - 4) 
+    if num >= 0:
+        def raizCuadrada(var):
+            x = 1.0
+            for k in range(1, 10):
+                x = (x + var/x)/2
+            return x
+        def cuadradoPerfecto(x): 
+            s = int(raizCuadrada(x)) 
+            return s*s == x 
+        def siNumero(n):  
+            return cuadradoPerfecto(5*n*n + 4) or cuadradoPerfecto(5*n*n - 4) 
 
-    if siNumero(num) == True: 
-        print(num,"es un numero Fibonacci")
-    else: 
-        print(num,"NO es un numero Fibonacci")
+        if siNumero(num) == True: 
+            print(num,"es un numero Fibonacci")
+        else: 
+            print(num,"NO es un numero Fibonacci")
+    else:
+        print("El numero debe ser natural")
 ######## Pruebas Funciones ########
 #ejCinco(int(input("Ingrese el valor de A:")), int(input("Ingrese el valor de B:")))
 #ejSeis(int(input("Ingrese el valor de A:")), int(input("Ingrese el valor de B:")))
@@ -84,4 +87,4 @@ def ejTrece(num):
 #ejDiez(a = int(input("Ingrese coeficiente A: ")),b = int(input("Ingrese coeficiente B: ")),c = int(input("Ingrese coeficiente C: ")),x = int(input("Ingrese el valor dado a X:")))
 #ejOnce(a = int(input("Ingrese coeficiente A del polinomio: ")), b = int(input("Ingrese coeficiente B del polinomio: ")), x = int(input("Ingrese valor dado a X: ")))
 #ejDoce(a = int(input("Ingrese el coeficiente A: ")), b = int(input("Ingrese el coeficiente B: ")), x = int(input("Ingrese valor dado a X: ")))
-#ejTrece(num = int(input("Ingrese el valor a comprobar: ")))
+ejTrece(num = int(input("Ingrese el valor a comprobar: ")))
