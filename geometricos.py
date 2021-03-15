@@ -18,7 +18,7 @@ def ejDiezSeis(r):
     z = (x * y) / 2
     print("Aproximadamente:","{:.2f}".format(z))
 #17. Dado el radio de un cı́rculo, calcular el área y perı́metro del cuadrado, pentágono y hexágono adentro (inscrito en un cı́rculo) y afuera (inscribiendo al cı́rculo).
-def ejDiezSiete(r = float(input("Ingrese el radio: "))):
+def ejDiezSiete(r):
     def raizCuadrada(var):
         x = 1.0
         for k in range(1, 10):
@@ -74,4 +74,4 @@ def ejDiezSiete(r = float(input("Ingrese el radio: "))):
 #ejCatorce(-1,1)
 #ejQuince(3,3,2,2)
 #ejDiezSeis(2)
-#ejDiezSiete()
+#ejDiezSiete(r = = float(input("Ingrese el radio: ")))
