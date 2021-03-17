@@ -52,9 +52,9 @@ def main():
             puasTotal = (puas * 5) * corralPerimetro
             if maderaTotal > varillasTotal and maderaTotal > puasTotal:
                 print("La mejor opcion es la madera, con un costo total de:", maderaTotal)
-            if varillasTotal > maderaTotal and varillasTotal > puasTotal:
+            elif varillasTotal > maderaTotal and varillasTotal > puasTotal:
                 print("La mejor opcion son las Varillas, con un costo total de:", varillasTotal)
-            if puasTotal > varillasTotal and puasTotal > maderaTotal:
+            elif puasTotal > varillasTotal and puasTotal > maderaTotal:
                 print("La mejor opcion son las Pueas, con un costo total de:", puasTotal)
         else:
             print("Ush donde dan esos materiales tan baratos")
