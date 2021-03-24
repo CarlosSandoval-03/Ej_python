@@ -1,0 +1,49 @@
+#22. Implementar la criba de Eratostenes para calcular los números primos en el rango 1 a n, donde n es un número natural dado por el usuario.
+def ejVeinteDos(n):
+    n = int(n)
+    if n >= 0:
+        numeros = list(range(2, n+1))
+        i = 0
+        while(numeros[i]*numeros[i] <= n):
+            for num in numeros:
+                if num <= numeros[i]:
+                    continue
+                elif num % numeros[i] == 0:
+                    numeros.remove(num)
+                else:
+                    pass
+            i += 1
+        print(numeros)
+    elif n == 1 or n == 0:
+        print("No son evaluables")
+    else:
+        print("El valor ingresado no es natural")
+#23. Desarrollar un algoritmo que calcule la suma de los elementos de un arreglo de números enteros (reales).
+def ejVeinteTres(a,n):
+    a = None
+    
+#24. Desarrollar un algoritmo que calcule el promedio de un arreglo de enteros (reales).
+
+#25. Desarrollar un algoritmo que calcule el producto punto de dos arreglos de números enteros (reales) de igual tamaño. Sean v = (v 1 , v 2 , . . . , v n ) y
+#w = (w 1 , w 2 , . . . , w n ) dos arreglos, el producto de v y w (notado v ⋅ w) es el número: v 1 ∗ w 1 + v 2 ∗ w 2 + ⋯ + v n ∗ w n .
+
+#26. Desarrollar un algoritmo que calcule el mı́nimo de un arreglo de números enteros (reales).
+
+# 27. Desarrollar un algoritmo que calcule el máximo de un arreglo de números enteros (reales).
+
+#28. Desarrollar un algoritmo que calcule el producto directo de dos arreglos de enteros (reales) de igual tamaño. Sean v = (v 1 , v 2 , . . . , v n ) y 
+# w = (w 1 , w 2 , . . . , w n ) dos arreglos, el producto directo de v y w (notado v ∗ w) es el vector: (v 1 ∗ w 1 , v 2 ∗ w 2 , . . . , v n ∗ w n ).
+
+#29. Desarrollar un algoritmo que determine la mediana de un arreglo de enteros (reales). La mediana es el número que queda en la mitad del arreglo después de ser
+#ordenado.
+
+#30. Hacer un algoritmo que deje al final de un arreglo de números todos los ceros que aparezcan en dicho arreglo.
+#Ejemplo.
+#vector original: (1, 6, 0, 7, −3, 8, 0, −2, 11)
+#vector salida: (1, 6, 7, −3, 8, −2, 11, 0, 0)
+#Ejemplo.
+#vector original: (0, 11, 36, 10, 0, 17, −23, 81, 0, 0, 12, 11, 0)
+#vector salida: (11, 36, 10, 17, −23, 81, 12, 11, 0, 0, 0, 0, 0)
+
+### Pruebas Funciones ###
+ejVeinteDos(n = input("Ingrese el numero natural a evaluar: "))
