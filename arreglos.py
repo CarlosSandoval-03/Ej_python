@@ -19,14 +19,32 @@ def ejVeinteDos(n):
     else:
         print("El valor ingresado no es natural")
 #23. Desarrollar un algoritmo que calcule la suma de los elementos de un arreglo de números enteros (reales).
-def ejVeinteTres(a,n):
-    a = None
-    
+def suma(arreglo):
+    n = len(arreglo)
+    if n == 1:
+        print(arreglo)
+    else:
+        suma = 0
+        for i in arreglo:
+            suma = suma + i
+    return suma
+def ejVeinteTres(x):
+    print(suma(x))
 #24. Desarrollar un algoritmo que calcule el promedio de un arreglo de enteros (reales).
-
+def ejVeinteCuatro(arreglo):
+    n = len(arreglo)
+    total = suma(arreglo)
+    total /= n
+    print(total)
 #25. Desarrollar un algoritmo que calcule el producto punto de dos arreglos de números enteros (reales) de igual tamaño. Sean v = (v 1 , v 2 , . . . , v n ) y
 #w = (w 1 , w 2 , . . . , w n ) dos arreglos, el producto de v y w (notado v ⋅ w) es el número: v 1 ∗ w 1 + v 2 ∗ w 2 + ⋯ + v n ∗ w n .
-
+def ejVeinteCinco(arreglo1,arreglo2):
+    n1 = len(arreglo1)
+    n2 = len(arreglo2)
+    if n1 == n2:
+        a = None
+    else:
+        print("Los arreglos no son del mismo tamaño")
 #26. Desarrollar un algoritmo que calcule el mı́nimo de un arreglo de números enteros (reales).
 
 # 27. Desarrollar un algoritmo que calcule el máximo de un arreglo de números enteros (reales).
@@ -46,4 +64,7 @@ def ejVeinteTres(a,n):
 #vector salida: (11, 36, 10, 17, −23, 81, 12, 11, 0, 0, 0, 0, 0)
 
 ### Pruebas Funciones ###
-ejVeinteDos(n = input("Ingrese el numero natural a evaluar: "))
+#ejVeinteDos(n = input("Ingrese el numero natural a evaluar: "))
+#ejVeinteTres(x = [3,5,4,8,9,10])
+#ejVeinteCuatro(arreglo = [3,5,4,8,9,10])
+ejVeinteCinco(arreglo1 = [1,3], arreglo2 = [3,3])
