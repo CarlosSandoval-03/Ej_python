@@ -42,11 +42,15 @@ def ejVeinteCinco(arreglo1,arreglo2):
     n1 = len(arreglo1)
     n2 = len(arreglo2)
     if n1 == n2:
-        a = None
+        producto = 0
+        for i in range(n1):
+            producto = producto + (arreglo1[i] * arreglo2[i])
+        print(producto)
     else:
         print("Los arreglos no son del mismo tamaño")
 #26. Desarrollar un algoritmo que calcule el mı́nimo de un arreglo de números enteros (reales).
-
+def ejVeinteSeis(arreglo):
+    a = None
 # 27. Desarrollar un algoritmo que calcule el máximo de un arreglo de números enteros (reales).
 
 #28. Desarrollar un algoritmo que calcule el producto directo de dos arreglos de enteros (reales) de igual tamaño. Sean v = (v 1 , v 2 , . . . , v n ) y 
@@ -67,4 +71,5 @@ def ejVeinteCinco(arreglo1,arreglo2):
 #ejVeinteDos(n = input("Ingrese el numero natural a evaluar: "))
 #ejVeinteTres(x = [3,5,4,8,9,10])
 #ejVeinteCuatro(arreglo = [3,5,4,8,9,10])
-ejVeinteCinco(arreglo1 = [1,3], arreglo2 = [3,3])
+#ejVeinteCinco(arreglo1 = [2,2,1], arreglo2 = [3,3,2])
+ejVeinteSeis(arreglo = [1,2,3,4,5,6,7,8,9,10])
