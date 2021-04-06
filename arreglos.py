@@ -97,6 +97,13 @@ def ejVeinteNueve(arreglo):
 #vector salida: (11, 36, 10, 17, −23, 81, 12, 11, 0, 0, 0, 0, 0)
 def ejTreinta(arreglo):
     n = len(arreglo)
+    for i in arreglo:
+        if i == 0:
+            arreglo.remove(i)
+            arreglo.append(0)
+        else:
+            continue
+    print(arreglo)
 ### Pruebas Funciones ###
 #ejVeinteDos(n = input("Ingrese el numero natural a evaluar: "))
 #ejVeinteTres(x = [3,5,4,8,9,10])
@@ -106,4 +113,5 @@ def ejTreinta(arreglo):
 #ejVeinteSiete(arreglo = [-25,0,23,-1,6,7,8,9,10,-489,1000])
 #ejVeinteOcho(arreglo1 = [2,2,1,5], arreglo2 = [3,3,2,10])
 #ejVeinteNueve(arreglo = [2,2,3,5,5,5,6,6,8,9])
-ejTreinta(arreglo = [1, 6, 0, 7, -3, 8, 0, -2, 11])
+#ejTreinta(arreglo = [1, 6, 0, 7, -3, 8, 0, -2, 11])
+#ejTreinta(arreglo = [0, 11, 36, 10, 0, 17, -23, 81, 0, 0, 12, 11, 0])
