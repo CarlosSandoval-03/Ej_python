@@ -10,8 +10,8 @@ def ejNueve(a, b, c):
             multiplo = c / numero
             print(c, "es multiplo de", numero,"(El numero",int(multiplo),"es el multiplo)")
         else:
-            print(c,"no es multiplo de",numero) 
-            
+            print(c,"no es multiplo de",numero)
+
 def main():
     a = int(input("Ingrese el numero a sumar A: "))
     b = int(input("Ingrese el numero a sumar B: "))
