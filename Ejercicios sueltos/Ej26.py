@@ -1,3 +1,4 @@
+import Ej23
 #26. Desarrollar un algoritmo que calcule el mı́nimo de un arreglo de números enteros (reales).
 def ejVeinteSeis(arreglo):
     x = arreglo[0]
@@ -6,16 +7,9 @@ def ejVeinteSeis(arreglo):
             x = i
     print("El valor minimo es:",x)
 
-def meterNumeros(arreglo):
-    a = input("Ingrese numero a insertar en el arreglo (Finalice secuencia con '#'): ")
-    if a != "#":
-        a = int(a)
-        arreglo.append(a)
-        meterNumeros(arreglo) 
-
 def main():
     x = []
-    meterNumeros(x)
+    Ej23.meterNumeros(x)
     ejVeinteSeis(x)
     
 if __name__ == "__main__":

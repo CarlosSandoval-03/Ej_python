@@ -1,3 +1,4 @@
+import Ej23
 #29. Desarrollar un algoritmo que determine la mediana de un arreglo de enteros (reales). La mediana es el número que queda en la mitad del arreglo después de ser
 #ordenado.
 def ejVeinteNueve(arreglo):
@@ -12,16 +13,9 @@ def ejVeinteNueve(arreglo):
         n = round(n)
         print("La mediana del arreglo:",arreglo,"es:",arreglo[n])
 
-def meterNumeros(arreglo):
-    a = input("Ingrese numero a insertar en el arreglo (Finalice secuencia con '#'): ")
-    if a != "#":
-        a = int(a)
-        arreglo.append(a)
-        meterNumeros(arreglo) 
-
 def main():
     x = []
-    meterNumeros(x)
+    Ej23.meterNumeros(x)
     ejVeinteNueve(x)
     
 if __name__ == "__main__":

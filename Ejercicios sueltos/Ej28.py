@@ -1,3 +1,4 @@
+import Ej23
 #28. Desarrollar un algoritmo que calcule el producto directo de dos arreglos de enteros (reales) de igual tamaño. Sean v = (v 1 , v 2 , . . . , v n ) y 
 # w = (w 1 , w 2 , . . . , w n ) dos arreglos, el producto directo de v y w (notado v ∗ w) es el vector: (v 1 ∗ w 1 , v 2 ∗ w 2 , . . . , v n ∗ w n ).
 def ejVeinteOcho(arreglo1,arreglo2):
@@ -11,19 +12,12 @@ def ejVeinteOcho(arreglo1,arreglo2):
         print("El producto directo de los dos arreglos es:",productoDirecto)
     else:
         print("Los arreglos no son del mismo tamaño")
-
-def meterNumeros(arreglo):
-    a = input("Ingrese numero a insertar en el arreglo (Finalice secuencia con '#'): ")
-    if a != "#":
-        a = int(a)
-        arreglo.append(a)
-        meterNumeros(arreglo) 
  
 def main():
     x = []
     y = []
-    meterNumeros(x)
-    meterNumeros(y)
+    Ej23.meterNumeros(x)
+    Ej23.meterNumeros(y)
     ejVeinteOcho(x,y)
     
 if __name__ == "__main__":

@@ -1,3 +1,4 @@
+import Ej23
 #25. Desarrollar un algoritmo que calcule el producto punto de dos arreglos de números enteros (reales) de igual tamaño. Sean v = (v 1 , v 2 , . . . , v n ) y
 #w = (w 1 , w 2 , . . . , w n ) dos arreglos, el producto de v y w (notado v ⋅ w) es el número: v 1 ∗ w 1 + v 2 ∗ w 2 + ⋯ + v n ∗ w n .
 def ejVeinteCinco(arreglo1,arreglo2):
@@ -11,18 +12,11 @@ def ejVeinteCinco(arreglo1,arreglo2):
     else:
         print("Los arreglos no son del mismo tamaño")
 
-def meterNumeros(arreglo):
-    a = input("Ingrese numero a insertar en el arreglo (Finalice secuencia con '#'): ")
-    if a != "#":
-        a = int(a)
-        arreglo.append(a)
-        meterNumeros(arreglo) 
-
 def main():
     x = []
     y = []
-    meterNumeros(x)
-    meterNumeros(y)
+    Ej23.meterNumeros(x)
+    Ej23.meterNumeros(y)
     ejVeinteCinco(x,y)
     
 if __name__ == "__main__":
