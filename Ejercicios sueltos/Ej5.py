@@ -1,0 +1,12 @@
+#5. Función potencia de un entero elevado a un entero.
+def ejCinco(a, b):
+    resultado = int(a) ** int(b)
+    print(resultado)
+    
+def main():
+    primerValor = int(input("Ingrese el valor de A:"))
+    segundoValor = int(input("Ingrese el valor de B:"))
+    ejCinco(primerValor,segundoValor)
+    
+if __name__ == "__main__":
+    main()
