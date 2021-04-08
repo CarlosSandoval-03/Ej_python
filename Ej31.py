@@ -6,11 +6,13 @@ from Ej23 import meterNumeros
 #Salida: 106
 #Ejemplo.
 #Entrada: (1, 0, 0, 1, 0, 1, 1, 1, 1) (representa el número 111101001).
-#Salida: 389
+#Salida: 489
 def ejTreintaUno(arreglo):
     meterNumeros(arreglo)
+    valorBinario = arreglo[::-1]
     if validacion(arreglo):
-        arreglo.reverse()
+        numeroDecimal = binario(arreglo)
+        print("El valor decimal de",valorBinario,"es:",numeroDecimal)
     else:
         print("Por favor ingrese valores validos (0 y 1)")
     
@@ -25,13 +27,14 @@ def validacion(arreglo):
     return a
 
 def binario(arreglo):
-    #print(0b1001) "Ob" es para base binaria no hay que hacer conversion
-    a = None
+    total = 0
+    for posicion, numero in enumerate(arreglo):
+        total += numero * (2 ** posicion)
+    return total
     
 def main():
     x = []
     ejTreintaUno(x)
-    print(x)
 
 if __name__ == "__main__":
     main()
