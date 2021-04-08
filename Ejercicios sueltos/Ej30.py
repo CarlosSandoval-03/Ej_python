@@ -1,4 +1,4 @@
-import Ej23
+from Ej23 import meterNumeros
 #30. Hacer un algoritmo que deje al final de un arreglo de números todos los ceros que aparezcan en dicho arreglo.
 #Ejemplo.
 #vector original: (1, 6, 0, 7, −3, 8, 0, −2, 11)
@@ -7,7 +7,6 @@ import Ej23
 #vector original: (0, 11, 36, 10, 0, 17, −23, 81, 0, 0, 12, 11, 0)
 #vector salida: (11, 36, 10, 17, −23, 81, 12, 11, 0, 0, 0, 0, 0)
 def ejTreinta(arreglo):
-    n = len(arreglo)
     for i in arreglo:
         if i == 0:
             arreglo.remove(i)
@@ -18,7 +17,7 @@ def ejTreinta(arreglo):
 
 def main():
     x = []
-    Ej23.meterNumeros(x)
+    meterNumeros(x)
     ejTreinta(x)
     
 if __name__ == "__main__":
