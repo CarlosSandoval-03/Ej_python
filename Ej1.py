@@ -8,7 +8,7 @@ def ejUno(vacas,corralN,corralM):
         print("Error: El area debe ser positiva")
     else:
         corralArea = corralN * corralM
-        if not vacas <= 0:
+        if vacas > 0:
             producir = float(input("¿Cuantos litros de leche la vaca produce por metro cuadrado?: "))
             leche = (corralArea / producir) * float(vacas)
             print("En la granja se producen:", leche, "litros de leche")
