@@ -22,11 +22,11 @@ def ejCuatro(corralN,corralM,madera,varillas,puas):
             print("Error medicion corral")
             
 def main():
-    alto = corralN = int(input("Ingrese el alto del corral: "))
-    ancho = corralM = int(input("Ingrese el ancho del corral: "))
-    madera = int(input("Ingrese costo de la madera (m): "))
-    varilla = int(input("Ingrese costo de la varilla (m): "))
-    puas = int(input("Ingrese costo del alambre de puas (m): "))
+    alto = float(input("Ingrese el alto del corral: "))
+    ancho = float(input("Ingrese el ancho del corral: "))
+    madera = float(input("Ingrese costo de la madera (m): "))
+    varilla = float(input("Ingrese costo de la varilla (m): "))
+    puas = float(input("Ingrese costo del alambre de puas (m): "))
     ejCuatro(alto,ancho,madera,varilla,puas)
 
 if __name__ == "__main__":
