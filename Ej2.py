@@ -17,7 +17,7 @@ def ejDos(aves):
         print("Aves existentes insuficientes")
         
 def main():
-    a = aves = int(input("Numero de Aves: "))
+    a = int(input("Numero de Aves: "))
     ejDos(a)
     
 if __name__ == "__main__":
