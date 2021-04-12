@@ -11,7 +11,7 @@ def ejTres(escorpiones):
         escorpionesMedianos = escorpionesVenta * 30
         escorpionesGramos = escorpionesGrandes + escorpionesMedianos
         escorpionesKilos = escorpionesGramos / 1000
-        print("Podemos vender:", escorpionesKilos, "kilos, de escorpiones a China")
+        print("Podemos vender:", escorpionesKilos, "kilos de escorpiones")
     else:
         print("No tenemos escorpiones suficientes")
 
