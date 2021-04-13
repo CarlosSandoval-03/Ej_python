@@ -7,6 +7,8 @@ def ejSiete(numero, i=2):
         return True
     elif numero%i != 0:
         return ejSiete(numero, i + 1)
+    elif numero < 0:
+        print("El valor indicado no puede ser evaluado")
     else:
         print("No es primo", i, "es divisor")
         return False
