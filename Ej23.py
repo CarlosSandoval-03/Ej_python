@@ -14,9 +14,12 @@ def ejVeinteTres(arreglo):
 def meterNumeros(arreglo):
     a = input("Ingrese numero a insertar en el arreglo (Finalice secuencia con '#'): ")
     if a != "#":
-        a = int(a)
-        arreglo.append(a)
-        meterNumeros(arreglo)
+        try:
+            a = int(a)
+            arreglo.append(a)
+        except:
+            print("Valor invalido, por favor ingrese valores enteros")
+            meterNumeros(arreglo)
     else:
         return arreglo
 
