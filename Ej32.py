@@ -8,25 +8,16 @@
 #Número: 389
 #Arreglo: (1, 0, 0, 1, 0, 1, 1, 1, 1) (representa el número 111101001)
 def decimalBinario(decimal):
-    binario = ""
-    if decimal == 0:
-        binario = "0"
-        return binario
-    while decimal > 0:
-        residuo = int(decimal % 2)
-        decimal = int(decimal / 2)
-        binario = str(residuo) + binario
+    binario = []
+    while decimal // 2 >= 1:
+        binario.append(decimal%2)
+        decimal = decimal // 2
+    binario.append(decimal % 2)
     return binario
-
-def convertirLista(cadena):
-    arreglo = []
-    for elemento in cadena:
-        arreglo.append(elemento)
-    return arreglo
         
 def ejTreintaDos(datos):
     if validar(datos):
-        resultado = convertirLista(decimalBinario(datos))
+        resultado = decimalBinario(datos)
         resultado.reverse()
         print("La lista solicitada es:",resultado)
     else:
