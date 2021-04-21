@@ -11,15 +11,15 @@ def ejCuatro(corralN,corralM,madera,varillas,puas):
             varillasTotal = (varillas * 8) * corralPerimetro
             puasTotal = (puas * 5) * corralPerimetro
             if maderaTotal < varillasTotal and maderaTotal < puasTotal:
-                print("La mejor opcion es la madera, con un costo total de:", maderaTotal)
+                return("La mejor opcion es la madera, con un costo total de:", maderaTotal)
             elif varillasTotal < maderaTotal and varillasTotal < puasTotal:
-                print("La mejor opcion son las Varillas, con un costo total de:", varillasTotal)
+                return("La mejor opcion son las Varillas, con un costo total de:", varillasTotal)
             elif puasTotal < varillasTotal and puasTotal < maderaTotal:
-                print("La mejor opcion son las Puas, con un costo total de:", puasTotal)
+                return("La mejor opcion son las Puas, con un costo total de:", puasTotal)
         else:
-            print("Error Precios Materiales")
+            return("Error Precios Materiales")
     else:
-            print("Error medicion corral")
+            return("Error medicion corral")
             
 def main():
     alto = float(input("Ingrese el alto del corral: "))
@@ -27,7 +27,7 @@ def main():
     madera = float(input("Ingrese costo de la madera (m): "))
     varilla = float(input("Ingrese costo de la varilla (m): "))
     puas = float(input("Ingrese costo del alambre de puas (m): "))
-    ejCuatro(alto,ancho,madera,varilla,puas)
+    print(ejCuatro(alto,ancho,madera,varilla,puas))
 
 if __name__ == "__main__":
     main()

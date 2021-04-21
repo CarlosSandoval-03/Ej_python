@@ -5,21 +5,21 @@
 #1. Si una vaca necesita M metros cuadrados de pasto para producir X litros de leche, ¿cuántos litros de leche se producen en la granja?.
 def ejUno(vacas,corralN,corralM):
     if corralM <= 0 or corralN <= 0:
-        print("Error: El area debe ser positiva")
+        return "Error: El area debe ser positiva"
     else:
         corralArea = corralN * corralM
         if vacas > 0:
             producir = float(input("Cuantos litros de leche la vaca produce por metro cuadrado?: "))
             leche = (corralArea / producir) * float(vacas)
-            print("En la granja se producen:", leche, "litros de leche")
+            return "En la granja se producen:", leche, "litros de leche"
         else:
-            print("No es posible producir leche sin vacas")
+            return "No es posible producir leche sin vacas"
 
 def main():
     a = int(input("Numero de vacas: "))
     b = float(input("Ingrese el alto del corral: "))
     c = float(input("Ingrese el ancho del corral: "))
-    ejUno(a,b,c)
+    print(ejUno(a,b,c))
 
 if __name__ == "__main__":
     main()

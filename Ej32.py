@@ -19,9 +19,9 @@ def ejTreintaDos(datos):
     if validar(datos):
         resultado = decimalBinario(datos)
         resultado.reverse()
-        print("La lista solicitada es:",resultado)
+        return "La lista solicitada es:",resultado
     else:
-        print("Datos ingresados invalidos, por favor que sea un entero positivo")
+        return "Datos ingresados invalidos, por favor que sea un entero positivo"
     
 def validar(dato):
     if dato >= 0:
@@ -31,7 +31,7 @@ def validar(dato):
 
 def main():
     a = int(input("Ingrese el valor natural a evaluar: "))
-    ejTreintaDos(a)
+    print(ejTreintaDos(a))
     
 if __name__ == "__main__":
     main()

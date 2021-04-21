@@ -14,9 +14,9 @@ def ejTreintaUno(arreglo):
     valorBinario = arreglo[::-1]
     if validacion(arreglo):
         numeroDecimal = binario(arreglo)
-        print("El valor decimal de",valorBinario,"es:",numeroDecimal)
+        return "El valor decimal de",valorBinario,"es:",numeroDecimal
     else:
-        print("Por favor ingrese valores validos (0 y 1)")
+        return "Por favor ingrese valores validos (0 y 1)"
     
 def validacion(arreglo):
     for i in arreglo:
@@ -38,7 +38,7 @@ def binario(arreglo):
     
 def main():
     x = []
-    ejTreintaUno(x)
+    print(ejTreintaUno(x))
 
 if __name__ == "__main__":
     main()

@@ -7,11 +7,11 @@ def ejDiezOcho(r):
     t = pi * (r**2)
     perimetro = 6 * r
     cm = t / perimetro
-    print("La araña necesitara:","{:.2f}".format(cm),"cm")
+    return "La araña necesitara:","{:.2f}".format(cm),"cm"
     
 def main():
     radio = float(input("Ingrese el radio: "))
-    ejDiezOcho(radio)
+    print(ejDiezOcho(radio))
 
 if __name__ == "__main__":
     main()

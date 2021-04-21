@@ -10,15 +10,15 @@ def ejDos(aves):
             grupoUno = int(gallinasMitad) * (30 / 3)
             grupoDos = int(gallinasMitad) * (30 / 5)
             huevos = grupoUno + grupoDos
-            print("En 1 mes la granja produce:", int(huevos), "huevos")
+            return ("En 1 mes la granja produce:", int(huevos), "huevos")
         else:
-            print("Aves existentes insuficientes")
+            return ("Aves existentes insuficientes")
     else:
-        print("Aves existentes insuficientes")
+        return ("Aves existentes insuficientes")
         
 def main():
     a = int(input("Numero de Aves: "))
-    ejDos(a)
+    print(ejDos(a))
     
 if __name__ == "__main__":
     main()

@@ -5,11 +5,11 @@ def ejDiezSeis(r):
     x = 4.84 * r
     y = 2.42 * r
     z = (x * y) / 2
-    print("Aproximadamente:","{:.2f}".format(z))
+    return "Aproximadamente:","{:.2f}".format(z)
 
 def main():
     radio = float(input("Ingrese el radio del circulo: "))
-    ejDiezSeis(radio)
+    print(ejDiezSeis(radio))
     
 if __name__ == "__main__":
     main()

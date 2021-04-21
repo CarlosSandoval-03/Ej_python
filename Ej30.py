@@ -15,12 +15,12 @@ def ejTreinta(arreglo):
             arreglo.append(0)
         else:
             continue
-    print(arreglo)
+    return(arreglo)
 
 def main():
     x = []
     meterNumeros(x)
-    ejTreinta(x)
+    print(ejTreinta(x))
     
 if __name__ == "__main__":
     main()

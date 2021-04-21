@@ -15,15 +15,15 @@ def ejVeinteDos(n):
                 else:
                     pass
             i += 1
-        print(numeros)
+        return numeros
     elif n == 1 or n == 0:
-        print("No son evaluables")
+        return "No son evaluables"
     else:
-        print("El valor ingresado no es natural")
+        return "El valor ingresado no es natural"
         
 def main():
     n = input("Ingrese el numero natural a evaluar: ")
-    ejVeinteDos(n)
+    print(ejVeinteDos(n))
     
 if __name__ == "__main__":
     main()

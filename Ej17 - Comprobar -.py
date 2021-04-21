@@ -50,13 +50,13 @@ def ejDiezSiete(r):
     else:
         enunciado = False
     if enunciado:
-        print("\nEl area es:","{:.2f}".format(area),"y el perimetro es:","{:.2f}".format(perimetro),"del",problema)
+        return "\nEl area es:","{:.2f}".format(area),"y el perimetro es:","{:.2f}".format(perimetro),"del",problema
     else:
-        print("\nProblema seleccionado fuera de rango.")
+        return "\nProblema seleccionado fuera de rango."
         
 def main():
     radio = float(input("Ingrese el radio: "))
-    ejDiezSiete(radio)
+    print(ejDiezSiete(radio))
 
 if __name__ == "__main__":
     main()

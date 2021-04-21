@@ -5,14 +5,13 @@ def ejDiezNueve(p,k,t):
     p = int(p)
     k = int(k)
     t = int(t)
-    total = t / (p * k)
-    print("El total de arboles es:",total)
+    return "El total de arboles es:",(t / (p * k))
     
 def main():
     hojas = input("Cuantas hojas hay por rama?: ")
     ramas = input("Cuantas ramas hay por arbol?: ")
     total = input("Cuantas hojas quieres obtener?: ")
-    ejDiezNueve(hojas,ramas,total)
+    print(ejDiezNueve(hojas,ramas,total))
 
 if __name__ == "__main__":
     main()

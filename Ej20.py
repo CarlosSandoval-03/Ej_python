@@ -22,14 +22,14 @@ def ejVeinte(k,i):
         tipo = False
         
     if tipo:
-        print("El total de pagar a la semana con un interes",peticion,"es $","{:.2f}".format(total))
+        return "El total de pagar a la semana con un interes",peticion,"es $","{:.2f}".format(total)
     else:
-        print("Peticion solicitada invalida")
+        return "Peticion solicitada invalida"
 
 def main():
     k = float(input("Ingrese el valor prestado: "))
     i = float(input("Ingrese el interes diario: "))
-    ejVeinte(k,i)
+    print(ejVeinte(k,i))
 
 if __name__ == "__main__":
     main()

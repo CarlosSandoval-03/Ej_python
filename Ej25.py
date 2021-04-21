@@ -10,16 +10,16 @@ def ejVeinteCinco(arreglo1,arreglo2):
         producto = 0
         for i in range(n1):
             producto = producto + (arreglo1[i] * arreglo2[i])
-        print("El producto de los dos arreglos es:",producto)
+        return "El producto de los dos arreglos es:",producto
     else:
-        print("Los arreglos no son del mismo tamaño")
+        return "Los arreglos no son del mismo tamaño"
 
 def main():
     x = []
     y = []
     meterNumeros(x)
     meterNumeros(y)
-    ejVeinteCinco(x,y)
+    print(ejVeinteCinco(x,y))
     
 if __name__ == "__main__":
     main()

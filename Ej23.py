@@ -4,12 +4,12 @@
 def ejVeinteTres(arreglo):
     n = len(arreglo)
     if n == 1:
-        print(arreglo)
+        return arreglo
     else:
         suma = 0
         for i in arreglo:
             suma = suma + i
-    print("La suma de los elementos del arreglo es:",suma)
+    return "La suma de los elementos del arreglo es:",suma
 
 def meterNumeros(arreglo):
     a = input("Ingrese numero a insertar en el arreglo (Finalice secuencia con '#'): ")
@@ -26,7 +26,7 @@ def meterNumeros(arreglo):
 def main():
     x = []
     meterNumeros(x)
-    ejVeinteTres(x)
+    print(ejVeinteTres(x))
     
 if __name__ == "__main__":
     main()

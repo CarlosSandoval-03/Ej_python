@@ -17,15 +17,15 @@ def siNumero(num):
 def ejTrece(numero):
     if numero >= 0:
         if siNumero(numero) == True: 
-            print(numero,"es un numero Fibonacci")
+            return (numero,"es un numero Fibonacci")
         else: 
-            print(numero,"NO es un numero Fibonacci")
+            return (numero,"NO es un numero Fibonacci")
     else:
-        print("El numero debe ser natural")
+        return "El numero debe ser natural"
 
 def main():
     numero = int(input("Ingrese el valor a comprobar: "))
-    ejTrece(numero)
+    print(ejTrece(numero))
 
 if __name__ == "__main__":
     main()

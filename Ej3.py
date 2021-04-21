@@ -11,13 +11,13 @@ def ejTres(escorpiones):
         escorpionesMedianos = escorpionesVenta * 30
         escorpionesGramos = escorpionesGrandes + escorpionesMedianos
         escorpionesKilos = escorpionesGramos / 1000
-        print("Podemos vender:", escorpionesKilos, "kilos de escorpiones")
+        return("Podemos vender:", escorpionesKilos, "kilos de escorpiones")
     else:
-        print("No tenemos escorpiones suficientes")
+        return("No tenemos escorpiones suficientes")
 
 def main():
     a = int(input("Numero de escorpiones: "))
-    ejTres(a)
+    print(ejTres(a))
 
 if __name__ == "__main__":
     main()

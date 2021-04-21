@@ -12,14 +12,14 @@ def mcd(primerValor, segundoValor):
         
 def ejOcho(a, b):
     if mcd(a,b) == 1:
-        print("Son primos relativos")
+        return "Son primos relativos"
     else:
-        print("No son primos relativos")
+        return "No son primos relativos" 
         
 def main():
     primerValor = int(input("Ingrese el valor de A: "))
     segundoValor = int(input("Ingrese el valor de B: "))
-    ejOcho(primerValor,segundoValor)
+    print(ejOcho(primerValor,segundoValor))
 
 if __name__ == "__main__":
     main()

@@ -9,16 +9,16 @@ def ejVeinteNueve(arreglo):
     if n%2 == 0:
         n /= 2
         total = (arreglo[int(n-1)] + arreglo[int(n)]) / 2
-        print("La mediana del arreglo:",arreglo,"es:",total)
+        return "La mediana del arreglo:",arreglo,"es:",total
     elif n%2 != 0:
         n /= 2
         n = round(n)
-        print("La mediana del arreglo:",arreglo,"es:",arreglo[n])
+        return "La mediana del arreglo:",arreglo,"es:",arreglo[n]
 
 def main():
     x = []
     meterNumeros(x)
-    ejVeinteNueve(x)
+    print(ejVeinteNueve(x))
     
 if __name__ == "__main__":
     main()

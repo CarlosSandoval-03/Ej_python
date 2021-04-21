@@ -32,13 +32,13 @@ def ejVeinteUno(num):
     else:
         mensaje = False
     if mensaje:
-        print("La cantidad de formas en las que se pueden ubicar las fichas en el caso",caso,"es de",x,"formas posibles")
+        return "La cantidad de formas en las que se pueden ubicar las fichas en el caso",caso,"es de",x,"formas posibles"
     else:
-        print("Caso solicidato invalido")
-        
+        return "Caso solicidato invalido"
+            
 def main():
     n = int(input("Ingrese el valor de la 'n': "))
-    ejVeinteUno(n)
+    print(ejVeinteUno(n))
     
 if __name__ == "__main__":
     main()

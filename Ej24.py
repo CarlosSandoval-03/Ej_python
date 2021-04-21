@@ -5,7 +5,7 @@ from Ej23 import meterNumeros
 def suma(arreglo):
     n = len(arreglo)
     if n == 1:
-        print(arreglo)
+        return arreglo
     else:
         suma = 0
         for i in arreglo:
@@ -16,12 +16,12 @@ def ejVeinteCuatro(arreglo):
     n = len(arreglo)
     total = suma(arreglo)
     total /= n
-    print("El promedio del arreglo es:",total)
+    return "El promedio del arreglo es:",total
     
 def main():
     x = []
     meterNumeros(x)
-    ejVeinteCuatro(x)
+    print(ejVeinteCuatro(x))
     
 if __name__ == "__main__":
     main()
