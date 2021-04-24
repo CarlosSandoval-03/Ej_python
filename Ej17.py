@@ -1,12 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from Ej13 import raizCuadrada
 #17. Dado el radio de un cı́rculo, calcular el área y perı́metro del cuadrado, pentágono y hexágono adentro (inscrito en un cı́rculo) y afuera (inscribiendo al cı́rculo).
-def raizCuadrada(var):
-    x = 1.0
-    for k in range(1, 10):
-        x = (x + var/x)/2
-    return x
-
 def eleccion():
     print("1. Area y Perimetro del Cuadrado (Exteriror)\n2. Area y Perimetro del Cuadrado (Interiror)")
     print("3. Area y Perimetro del Pentagono (Exteriror)\n4. Area y Perimetro del Pentagono (Interiror)")
@@ -18,7 +13,8 @@ def ejDiezSiete(r):
     e = eleccion()
     enunciado = None
     if e == 1:
-        area = (2*r) * (2*r)
+        #https://www.youtube.com/watch?v=TTx5KvUQ4QI
+        area = (2*r) ** 2
         perimetro = 8 * r
         problema = "Cuadrado (Exterior)"
         enunciado = True
@@ -28,16 +24,20 @@ def ejDiezSiete(r):
         problema = "Cuadrado (Interno)"
         enunciado = True
     elif e == 3:
+        # 0.5878 = cos(3pi / 10)
+        # 0.8090 = cos(pi / 5)
         area = ((10 * r * 0.5878/0.8090) * r) / 2
         perimetro = (10 * r * 0.5878) / 0.8090
         problema = "Pentagono (Exterior)"
         enunciado = True
     elif e == 4:
+        # 0.9510 = 
         area = (((5 * r * 0.9510) / 0.8090) * (r * 0.8090)) / 2
         perimetro = (5 * r * 0.9510) / 0.890
         problema = "Pentagono (Interior)"
         enunciado = True
     elif e == 5:
+        # 0.866 = cos(pi / 6)
         area = (((6 * r) / 0.866) * (r * 0.866)) / 2
         perimetro = (6 * r) / 0.866
         problema = "Hexagono (Exterior)"
