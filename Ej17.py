@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 import math
 import Ej16
 #17. Dado el radio de un cı́rculo, calcular el área y perı́metro del cuadrado, pentágono y hexágono adentro (inscrito en un cı́rculo) y afuera (inscribiendo al cı́rculo).
