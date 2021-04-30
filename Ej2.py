@@ -2,9 +2,9 @@
 #huevos producen? (1 mes ≡ 30 dı́as).
 def ejDos(aves):
     if aves >= 3:
-        gallinas = aves / 3
+        gallinas = aves // 3
         if not gallinas <= 2:
-            gallinasMitad = int(gallinas) / 2
+            gallinasMitad = int(gallinas) // 2
             grupoUno = int(gallinasMitad) * (30 / 3)
             grupoDos = int(gallinasMitad) * (30 / 5)
             huevos = grupoUno + grupoDos

@@ -10,7 +10,7 @@ def cuadradoPerfecto(x):
     return y*y == x 
 
 def siNumero(num):  
-    return cuadradoPerfecto(5*num*num + 4) or cuadradoPerfecto(5*num*num - 4)
+    return cuadradoPerfecto(5*(num**2) + 4) or cuadradoPerfecto(5*(num**2) - 4)
 
 def ejTrece(numero):
     if numero >= 0:

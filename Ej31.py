@@ -27,7 +27,6 @@ def binario(arreglo):
 
 def ejTreintaUno():
     arreglo = nuevoMeterNumeros()
-    valorBinario = arreglo[::-1]
     if validacion(arreglo):
         numeroDecimal = binario(arreglo)
         return numeroDecimal
