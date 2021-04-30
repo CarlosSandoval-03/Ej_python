@@ -5,6 +5,7 @@
 #Ejemplo.
 #Número: 389
 #Arreglo: (1, 0, 0, 1, 0, 1, 1, 1, 1) (representa el número 111101001)
+#Commit de prueba
 def decimalBinario(decimal):
     binario = []
     while decimal // 2 >= 1:
