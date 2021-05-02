@@ -1,6 +1,6 @@
 from Ej23 import meterNumeros
 #26. Desarrollar un algoritmo que calcule el mı́nimo de un arreglo de números enteros (reales).
-def ejVeinteSeis(arreglo):
+def minimoArreglo(arreglo):
     x = arreglo[0]
     for i in arreglo:
         if i <= x:

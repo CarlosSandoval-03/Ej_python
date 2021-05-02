@@ -1,5 +1,5 @@
 #22. Implementar la criba de Eratostenes para calcular los números primos en el rango 1 a n, donde n es un número natural dado por el usuario.
-def ejVeinteDos(n):
+def criba(n):
     n = int(n)
     if n >= 0:
         numeros = list(range(2, n+1))
@@ -25,7 +25,7 @@ def ejVeinteDos(n):
         
 def main():
     n = input("Ingrese el numero natural a evaluar: ")
-    print(ejVeinteDos(n))
+    print(criba(n))
     
 if __name__ == "__main__":
     main()
