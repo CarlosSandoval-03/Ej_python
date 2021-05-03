@@ -13,13 +13,15 @@ def ejTrece(numero):
         else: 
             return [False,numero]
     else:
-        return "El numero debe ser natural"
+        return ["Error"]
 
 def main():
     numero = int(input("Ingrese el valor a comprobar: "))
     valor = ejTrece(numero)
-    if valor[0]:
+    if valor[0] == True:
         print(valor[1],"es un numero Fibonacci")
+    elif valor[0] == "Error":
+        print("El numero debe ser natural")
     else:
         print(valor[1],"NO es un numero Fibonacci")
 
