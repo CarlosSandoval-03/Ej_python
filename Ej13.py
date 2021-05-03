@@ -1,12 +1,6 @@
 #13. Dado un natural, determinar si es un número de Fibonacci o no.
-def raizCuadrada(var):
-    x = 1.0
-    for k in range(1, 10):
-        x = (x + var/x)/2
-    return x
-
 def cuadradoPerfecto(x): 
-    y = int(raizCuadrada(x)) 
+    y = int(x ** 0.5) 
     return y*y == x 
 
 def siNumero(num):  
@@ -15,15 +9,19 @@ def siNumero(num):
 def ejTrece(numero):
     if numero >= 0:
         if siNumero(numero) == True: 
-            return (numero,"es un numero Fibonacci")
+            return [True,numero]
         else: 
-            return (numero,"NO es un numero Fibonacci")
+            return [False,numero]
     else:
         return "El numero debe ser natural"
 
 def main():
     numero = int(input("Ingrese el valor a comprobar: "))
-    print(ejTrece(numero))
+    valor = ejTrece(numero)
+    if valor[0]:
+        print(valor[1],"es un numero Fibonacci")
+    else:
+        print(valor[1],"NO es un numero Fibonacci")
 
 if __name__ == "__main__":
     main()
