@@ -1,12 +1,14 @@
 from Ej30 import nuevoMeterNumeros
-#31. Suponga que un arreglo de enteros esta lleno de unos y ceros y que el arreglo representa un número binario al revés. Hacer un algoritmo que calcule los números
-#en decimal que representa dicho arreglo de unos y ceros.
-#Ejemplo.
-#Entrada: (0, 1, 0, 1, 0, 1, 1) (representa el número 1101010).
+# 31. Suponga que un arreglo de enteros esta lleno de unos y ceros y que el arreglo representa un número binario al revés. Hacer un algoritmo que calcule los números
+# en decimal que representa dicho arreglo de unos y ceros.
+# Ejemplo.
+# Entrada: (0, 1, 0, 1, 0, 1, 1) (representa el número 1101010).
 #Salida: 106
-#Ejemplo.
-#Entrada: (1, 0, 0, 1, 0, 1, 1, 1, 1) (representa el número 111101001).
+# Ejemplo.
+# Entrada: (1, 0, 0, 1, 0, 1, 1, 1, 1) (representa el número 111101001).
 #Salida: 489
+
+
 def validacion(arreglo):
     for i in arreglo:
         if i == 0 or i == 1:
@@ -17,6 +19,7 @@ def validacion(arreglo):
             break
     return a
 
+
 def binario(arreglo):
     total = 0
     posicion = 0
@@ -25,6 +28,7 @@ def binario(arreglo):
         posicion += 1
     return total
 
+
 def ejTreintaUno():
     arreglo = nuevoMeterNumeros()
     if validacion(arreglo):
@@ -32,9 +36,11 @@ def ejTreintaUno():
         return numeroDecimal
     else:
         print("Por favor ingrese valores validos (0 y 1)")
-    
+
+
 def main():
-    print("El valor decimal es:",ejTreintaUno())
+    print("El valor decimal es:", ejTreintaUno())
+
 
 if __name__ == "__main__":
     main()
