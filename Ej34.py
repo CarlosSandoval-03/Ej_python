@@ -1,8 +1,9 @@
+from typing import Deque
 from Ej22 import criba
 from Ej27 import maximoArreglo
 # Hacer un algoritmo que calcule el M´ınimo Com´un M´ultiplo (MCM) para un arreglo de enteros positivos.
 # Ejemplo.
-#Arreglo: (12,20,30,15)
+# Arreglo: (12,20,30,15)
 
 
 def cuentaArreglo(arreglo, buscar):
@@ -36,25 +37,28 @@ def arregloEntero(arreglo):
     return lista
 
 
-def simplificarEnPrimos(arreglo) -> int:
-    lista = []
+def simplificarEnPrimos(arreglo) -> list:
+    valores = {}
     primos = criba(maximoArreglo(arregloEntero(arreglo)))
+    i = 0
     for numero in arreglo:
+        listaDivisores = []
         for divisores in primos:
             while numero % divisores == 0:
-                lista.append(divisores)
+                listaDivisores.append(divisores)
                 numero /= divisores
-        lista.append("|")
-    return lista
+        valores[i] = (listaDivisores)
+        i += 1
+    return valores
 
 
 def mcm(arreglo):
-    booleanoCiclo = True
-    arregloSimple = simplificarEnPrimos(arreglo)
-    while booleanoCiclo:
-        for i in range(: arregloSimple):
-            pass
-    return arregloSimple
+    diccionario = simplificarEnPrimos(arreglo)
+    if diccionario[0] in diccionario[1]:
+        print("a")
+    else:
+        print("b")
+    return diccionario
 
 
 def main():
