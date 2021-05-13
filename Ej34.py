@@ -54,14 +54,27 @@ def simplificarEnPrimos(arreglo) -> list:
 
 def mcm(arreglo):
     diccionario = simplificarEnPrimos(arreglo)
-    i = 0
-    x = diccionario[i]
-    y = diccionario[i+1]
-    return x, y, diccionario
+    mayor = []
+    listaOperar = []
+    x = 1
+    diccionarioValores = diccionario.values()
+    for value in diccionarioValores:
+        if len(value) > len(mayor):
+            mayor = value
+    listaOperar = mayor
+    for values in diccionarioValores:
+        for numbers in values:
+            if numbers in listaOperar:
+                continue
+            else:
+                listaOperar.append(numbers)
+    for numbers in listaOperar:
+        x *= numbers
+    return "mcm de", arreglo, "lista simplificada", listaOperar, "es", x
 
 
 def main():
-    print(mcm([10, 20, 30]))
+    print(mcm([12, 8]))
 
 
 if __name__ == "__main__":
