@@ -122,6 +122,10 @@ def menuPrincipal(Resultado=None, mensaje="", mem=[]):
         print(mensaje)
         arreglo1 = mem
         print("!---------------------------------------------------- Bienvenido a Los Conjuntos Como Arreglos ----------------------------------------------------!\nEl primer Arreglo es:", arreglo1)
+        borradoCache = str(input(
+            "Si desea eliminar este valor por favor digite ':wq' y el programa olvidara este primer arreglo: "))
+        if borradoCache == ":wq":
+            return menuPrincipal(None)
     elif Resultado == None:
         print("!---------------------------------------------------- Bienvenido a Los Conjuntos Como Arreglos ----------------------------------------------------!\nPrimer Arreglo")
         arreglo1 = verificionNoRepeticion(nuevoMeterNumeros())
