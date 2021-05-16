@@ -95,22 +95,34 @@ def contenidoArreglos(arreglo1, arreglo2):
 def boleanosMenu(arreglo1, arreglo2, eleccionUsuario):
     if eleccionUsuario == 1:
         temp = unionArreglos(arreglo1, arreglo2)
+        if temp[0] == "Conjunto Vacio":
+            return "Union", []
         return ["Union", temp]
     elif eleccionUsuario == 2:
         temp = interseccionArreglos(arreglo1, arreglo2)
+        if temp[0] == "Conjunto Vacio":
+            return "Interseccion", []
         return ["Interseccion", temp]
     elif eleccionUsuario == 3:
         temp = diferenciaArreglos(arreglo1, arreglo2)
+        if temp[0] == "Conjunto Vacio":
+            return "Diferencia", []
         return["Diferencia", temp]
     elif eleccionUsuario == 4:
         temp = difSimetricaArreglos(arreglo1, arreglo2)
+        if temp[0] == "Conjunto Vacio":
+            return "Diferencia Simetrica", []
         return ["Diferencia Simetrica", temp]
     elif eleccionUsuario == 5:
         entero = int(input("Ingrese el entero a evaluar: "))
         temp = perteneceArreglos(arreglo1, arreglo2, entero)
+        if temp[0] == "Conjunto Vacio":
+            return "Pertenece", []
         return ["Pertenece", temp, entero, "Especial1"]
     elif eleccionUsuario == 6:
         temp = contenidoArreglos(arreglo1, arreglo2)
+        if temp[0] == "Conjunto Vacio":
+            return "Contiene", []
         return ["Contiene", temp, "Especial2"]
     elif eleccionUsuario == 7:
         return "Finaliza"
