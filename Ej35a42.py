@@ -1,4 +1,3 @@
-# Programar el in
 import os
 from Ej30 import nuevoMeterNumeros
 from Ej29 import ordenarMenorMayor
