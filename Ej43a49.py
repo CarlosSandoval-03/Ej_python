@@ -17,7 +17,7 @@ def splitPolinomios(polinomio: str) -> list:
     if listOfTerms[0] == '':
         listOfTerms.pop(0)
     return listOfTerms
-# Exponentes ------------------------------------
+# Coeficientes ------------------------------------
 
 
 def coeficienteSubOperacion(polinomios: int) -> float:
