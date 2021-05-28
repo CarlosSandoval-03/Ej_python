@@ -1,8 +1,8 @@
 from Ej35a42 import limpiarConsola
-from metodosTemp import maximoArreglo
-from metodosTemp import inSimple
+from metodosTemp import inversoArreglo, maximoArreglo
 from metodosTemp import metodoIndex
-from metodosTemp import maximoArreglo
+from Ej35a42 import verificionNoRepeticion
+
 
 # Metodo Split ------------------------------------
 
@@ -122,48 +122,70 @@ def restarPolinomios(polinomio1: list, polinomio2: list) -> list:
 # 46. Multiplicar: Calcula el polinomio multiplicacion y lo imprime.
 
 
-def igualarArreglos(polinomio1: list, polinomio2: list) -> list:
-    n = len(polinomio1)
-    m = len(polinomio2)
-    a1 = polinomio1.copy()
-    a2 = polinomio2.copy()
-    if n != m:
-        temp = maximoArreglo([n, m])
-        if n == temp:
-            a2.append(0.0)
-        elif m == temp:
-            a1.append(0.0)
-        return igualarArreglos(a1, a2)
-    else:
-        return (a1, a2)
+def ubicarPolinomios(listaTerminos: list, exponentes: list) -> list:
+    listaUbicacion = ['0.0' for i in range(maximoArreglo(exponentes) + 1)]
+    temp1 = inversoArreglo(listaTerminos)
+    for k in range(len(temp1)):
+        listaUbicacion[k] = temp1[k]
+    return lista_textoPolinomio(inversoArreglo(listaUbicacion))
 
 
-def polinomio_diccionario(lista: list) -> dict:
-    diccionario = dict()
+def lista_textoPolinomio(lista: list) -> str:
     pos = 0
+    listaFinal = []
     for elemento in lista:
-        diccionario[pos] = elemento
+        if elemento != '0.0':
+            if pos > 0 and pos != 1:
+                listaFinal.append(elemento + 'x^' + str(pos))
+            elif pos > 0 and pos == 1:
+                listaFinal.append(elemento + 'x')
+            else:
+                listaFinal.append(elemento)
         pos += 1
-    return diccionario
+
+    temp = ''
+    for i in inversoArreglo(listaFinal):
+        temp += i
+    return temp
 
 
-def multiplicarPolinomios(lista1: list, lista2: list) -> list:
-    temp_listas = igualarArreglos(lista1.copy(), lista2.copy())
+def multiplicarPolinomios(polinomio1: list, polinomio2: list) -> list:
+    multiplicar = []
+    expo = []
+    for i in range(len(polinomio1)):
+        for k in range(len(polinomio2)):
+            temp = polinomio1[i] * polinomio2[k]
+            if temp > 0:
+                multiplicar.append('+' + str(temp))
+                expo.append(i+k)
+            elif temp != 0:
+                expo.append(i+k)
+                multiplicar.append(str(temp))
 
-    polinomio1 = temp_listas[0]
-    polinomio2 = temp_listas[1]
+    counts = {}
+    for j in range(len(expo)):
+        counts[expo[j]] = counts.get(expo[j], 0) + 1
 
-    dict_polinomio1 = polinomio_diccionario(polinomio1)
-    dict_polinomio2 = polinomio_diccionario(polinomio2)
+    copiaMultiplicar = multiplicar.copy()
+    operar = []
+    listaTemporal = []
+    for k, v in counts.items():
+        if v > 1:
+            for i in range(v):
+                index = metodoIndex(expo, k)
+                operar.append(copiaMultiplicar[index])  # Debo retornar copia
+                copiaMultiplicar.pop(index)
+                listaTemporal.append(index)
 
-    i = 0
-    dict_polinomioTotal = {}
-    while i < len(polinomio2):
-        for key, value in dict_polinomio1.items():
-            dict_polinomioTotal[key] = [value, polinomio2[i]]
-            i += 1
-
-    return dict_polinomio1, dict_polinomio2, dict_polinomioTotal
+    sumaTemp = 0
+    for h in range(len(operar)):
+        sumaTemp += float(operar[h])
+        if sumaTemp > 0:
+            suma = '+' + str(sumaTemp)
+        else:
+            suma = str(sumaTemp)
+    copiaMultiplicar.insert(listaTemporal[0], suma)
+    return ubicarPolinomios(copiaMultiplicar, verificionNoRepeticion(expo))
 
 # 47. Dividir: Calcula el polinomio division del primer polinomio por el segundo y lo imprime.
 # 48. Residuo: Calcula el polinomio residuo de la division del primero por el segundo y lo imprime.
