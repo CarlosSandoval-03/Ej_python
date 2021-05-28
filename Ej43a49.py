@@ -1,6 +1,7 @@
-# Video 9 : Time: 1:11:40
 from Ej35a42 import limpiarConsola
 from metodosTemp import maximoArreglo
+from metodosTemp import inSimple
+from metodosTemp import metodoIndex
 
 # Metodo Split ------------------------------------
 
@@ -63,6 +64,7 @@ def exponentes(listaPolinomios: list) -> list:
 
 def maximoGrado(listaExponentes: list) -> int:
     return maximoArreglo(listaExponentes)
+# Lista Polinomio ------------------------------------
 
 
 def meterPolinomios(coeficienteLista: list, exponenteLista: list) -> list:
@@ -81,19 +83,101 @@ def polinomio(string: str) -> list:
     expo = exponentes(temp)
     coef = coeficientes(temp)
     return meterPolinomios(coef, expo)
-    # 43. Evaluar: Lee un real e imprime la evaluacion de los dos polinomios en dicho dato.
-    # 44. Sumar: Calcula el polinomio suma y lo imprime.
-    # 45. Resta: Calcula el polinomio resta y lo imprime.
-    # 46. Multiplicar: Calcula el polinomio multiplicacion y lo imprime.
-    # 47. Dividir: Calcula el polinomio division del primer polinomio por el segundo y lo imprime.
-    # 48. Residuo: Calcula el polinomio residuo de la division del primero por el segundo y lo imprime.
-    # 49. Salir: Permite salir de la aplicacion al usuario.
-    # Despues de realizada la operacion el menu se debe presentar de nuevo hasta que el usuario desee salir.
+# 43. Evaluar: Lee un real e imprime la evaluacion de los dos polinomios en dicho dato.
+
+
+def evaluarSimple(polinomio: list, real: float) -> list:
+    n = len(polinomio)
+    pos = 0
+    listaFinal = []
+    while pos < n:
+        for termino in polinomio:
+            listaFinal.append(str(termino) + '(' + str(real ** pos) + ')')
+            pos += 1
+    return listaFinal
+
+
+def evaluar(polinomio1: list, polinomio2: list, real: float) -> tuple:
+    return (evaluarSimple(polinomio1, real), evaluarSimple(polinomio2, real))
+# 44. Sumar: Calcula el polinomio suma y lo imprime.
+
+
+def sumarPolinomios(polinomio1: list, polinomio2: list) -> list:
+    sumar = []
+    for i in range(len(polinomio1)):
+        temp = polinomio1[i] + polinomio2[i]
+        sumar.append(temp)
+    return sumar
+
+# 45. Resta: Calcula el polinomio resta y lo imprime.
+
+
+def restarPolinomios(polinomio1: list, polinomio2: list) -> list:
+    restar = []
+    for i in range(len(polinomio1)):
+        temp = polinomio1[i] - polinomio2[i]
+        restar.append(temp)
+    return restar
+# 46. Multiplicar: Calcula el polinomio multiplicacion y lo imprime.
+
+
+def multiplicarPolinomios(polinomio1: list, polinomio2: list) -> list:
+    multiplicar = []
+    expo = []
+    for i in range(len(polinomio1)):
+        for k in range(len(polinomio2)):
+            temp = polinomio1[i] * polinomio2[k]
+            if temp > 0:
+                multiplicar.append('+' + str(temp))
+                expo.append(i+k)
+            elif temp != 0:
+                expo.append(i+k)
+                multiplicar.append(str(temp))
+
+    counts = {}
+    for j in range(len(expo)):
+        counts[expo[j]] = counts.get(expo[j], 0) + 1
+
+    copiaMultiplicar = multiplicar.copy()
+    operar = []
+    listaTemporal = []
+    for k, v in counts.items():
+        if v > 1:
+            for i in range(v):
+                index = metodoIndex(expo, k)
+                operar.append(copiaMultiplicar[index])  # Debo retornar copia
+                copiaMultiplicar.pop(index)
+                listaTemporal.append(index)
+
+    sumaTemp = 0
+    for h in range(len(operar)):
+        sumaTemp += float(operar[h])
+        if sumaTemp > 0:
+            suma = '+' + str(sumaTemp)
+        else:
+            suma = str(sumaTemp)
+    copiaMultiplicar.insert(listaTemporal[0], suma)
+
+    return multiplicar, expo, operar, suma, copiaMultiplicar
+# 47. Dividir: Calcula el polinomio division del primer polinomio por el segundo y lo imprime.
+# 48. Residuo: Calcula el polinomio residuo de la division del primero por el segundo y lo imprime.
+# 49. Salir: Permite salir de la aplicacion al usuario.
+# Despues de realizada la operacion el menu se debe presentar de nuevo hasta que el usuario desee salir.
 
 
 def main():
     limpiarConsola()
-    print(polinomio('-3x^2-12x+8.1'))
+    # y = polinomio('2x^3+5x-3')
+    # z = polinomio('2x^3-3x^2+4x')
+    # print(sumarPolinomios(y, z))
+    # print(restarPolinomios(y, z))
+    a = polinomio('2x^2-3')
+    b = polinomio('2x^3-3x^2+4x')
+    print(multiplicarPolinomios(a, b))
+    print()
+    # c = polinomio('2x+1')
+    # d = polinomio('1+1x-1x^2')
+    # print(multiplicarPolinomios(c, d))
 
 
 if __name__ == '__main__':
