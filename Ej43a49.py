@@ -2,8 +2,6 @@ from Ej35a42 import limpiarConsola
 from metodosTemp import inversoArreglo, maximoArreglo
 from metodosTemp import metodoIndex
 from Ej35a42 import verificionNoRepeticion
-
-
 # Metodo Split ------------------------------------
 
 
@@ -134,7 +132,7 @@ def lista_textoPolinomio(lista: list) -> str:
     pos = 0
     listaFinal = []
     for elemento in lista:
-        if elemento != '0.0':
+        if elemento != '0.0' or elemento != '0':
             if pos > 0 and pos != 1:
                 listaFinal.append(elemento + 'x^' + str(pos))
             elif pos > 0 and pos == 1:
@@ -149,7 +147,7 @@ def lista_textoPolinomio(lista: list) -> str:
     return temp
 
 
-def multiplicarPolinomios(polinomio1: list, polinomio2: list) -> list:
+def multiplicarPolinomio(polinomio1: list, polinomio2: list) -> list:
     multiplicar = []
     expo = []
     for i in range(len(polinomio1)):
@@ -188,24 +186,90 @@ def multiplicarPolinomios(polinomio1: list, polinomio2: list) -> list:
     return ubicarPolinomios(copiaMultiplicar, verificionNoRepeticion(expo))
 
 # 47. Dividir: Calcula el polinomio division del primer polinomio por el segundo y lo imprime.
+
+
+def eliminar_ceros(lista: list) -> list:
+    temp = []
+    for i in range(len(lista)):
+        if lista[i] == '0':
+            pass
+        else:
+            temp.append(lista[i])
+    return temp
+
+
+def divisionPolinomios(lista_polinomio1: list, lista_polinomio2: list) -> list:
+    pol1 = eliminar_ceros(inversoArreglo(lista_polinomio1.copy()))
+    pol2 = eliminar_ceros(inversoArreglo(lista_polinomio2.copy()))
+
+
 # 48. Residuo: Calcula el polinomio residuo de la division del primero por el segundo y lo imprime.
 # 49. Salir: Permite salir de la aplicacion al usuario.
 # Despues de realizada la operacion el menu se debe presentar de nuevo hasta que el usuario desee salir.
+# Test = 2x^3+5x-3 || 4x-3x^2+2x^3
+
+def menu_polinomios() -> tuple:
+    limpiarConsola()
+    print('!---------------------------------------------------- Bienvenido a Los Polinomios Como Arreglos ----------------------------------------------------!\nPrimer Polinomio: ', end='')
+    primer_polinomio = str(input())
+    segundo_polinomio = str(input('Segundo Polinomio: '))
+    return (primer_polinomio, segundo_polinomio)
+
+
+def menu_elecciones(polinomio1: str, polinomio2: str) -> tuple:
+    limpiarConsola()
+    conver_p1 = polinomio(polinomio1)
+    conver_p2 = polinomio(polinomio2)
+    print(f'Polinomio 1: {polinomio1}\nPolinomio 2: {polinomio2}')
+    print("!----------------------- En caso de que el valor sea diferente a los mostrados aqui, tomara la eleccion valida mas cercana -----------------------!")
+    eleccionUsuario = int(input(
+        "Ingrese operacion a realizar:\n1. Evaluar\n2. Sumar\n3. Restar\n4. Multiplicar\n5. Dividir\n6. Residuo\n7. Finalizar programa\nEleccion: "))
+    return (conver_p1, conver_p2, eleccionUsuario)
+
+
+def operaciones_elecciones(pol1: list, pol2: list, eleccion: int):
+    if eleccion == 1:
+        num = float(input('Ingrese el valor con el cual evaluar: '))
+        temp = evaluar(pol1, pol2, num)
+        return ('evaluar', temp)
+    elif eleccion == 2:
+        temp = sumarPolinomios(pol1, pol2)
+        return ('sumar', temp)
+    elif eleccion == 3:
+        temp = restarPolinomios(pol1, pol2)
+        return ('restar', temp)
+    elif eleccion == 4:
+        temp = multiplicarPolinomio(pol1, pol2)
+        return ('multiplicar', temp)
+    elif eleccion == 5:
+        temp = 'Me falta wey \U0001F605'
+        return ('random', temp)
+    elif eleccion == 6:
+        temp = 'Me falta wey \U0001F605'
+        return ('random', temp)
+    elif eleccion >= 7:
+        return 'EXIT_MENU_OPERATION_404'
+
+
+def ciclo_menu(flag=True, impresion=False):
+    while flag == True and impresion == False:
+        x, y = menu_polinomios()
+        lista = menu_elecciones(x, y)
+        resultado = operaciones_elecciones(lista[0], lista[1], lista[2])
+        if resultado != 'EXIT_MENU_OPERATION_404':
+            impresion = True
+            limpiarConsola()
+            print(f'El resultado de {resultado[0]} es: {resultado[1]}')
+            continuar = str(input('Ingrese cualquier valor para continuar: '))
+            if len(continuar) != 0 or len(continuar) == 0:
+                ciclo_menu()
+        else:
+            print('!---------------------------------------------------- Hasta la proxima \U0001F44B ----------------------------------------------------!')
+            flag = False
 
 
 def main():
-    limpiarConsola()
-    # y = polinomio('2x^3+5x-3')
-    # z = polinomio('2x^3-3x^2+4x')
-    # print(sumarPolinomios(y, z))
-    # print(restarPolinomios(y, z))
-    a = polinomio('2x^2-3')
-    b = polinomio('2x^3-3x^2+4x')
-    print(multiplicarPolinomios(a, b))
-    print()
-    # c = polinomio('2x+1')
-    # d = polinomio('1+1x-1x^2')
-    # print(multiplicarPolinomios(c, d))
+    ciclo_menu()
 
 
 if __name__ == '__main__':
