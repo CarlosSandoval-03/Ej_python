@@ -1,47 +1,6 @@
 # Desarrollar un algoritmo que permita sumar dos matrices de numeros reales (enteros).
 from Ej35a42 import limpiarConsola
-
-
-def meter_matrices(arreglo: list) -> list:
-    def operacion(arreglo):
-        a = input('Ingrese numeros a insertar en la columna: ')
-        if a != '#':
-            if a != '!':
-                try:
-                    a = list(map(float, a.split()))
-                    arreglo.append(a)
-                    operacion(arreglo)
-                except:
-                    print('Valor invalido, por favor ingrese valores reales')
-                    operacion(arreglo)
-            else:
-                print('Ultima columna removido')
-                arreglo.pop()
-                operacion(arreglo)
-        else:
-            return arreglo
-    print('---- Finalice secuencia con "#" - Remueva el ultima columna con "!" ----')
-    operacion(arreglo)
-    return arreglo
-
-
-def comprobacion_matrices_igual_orden(mat1: list, mat2: list) -> bool:
-    n, m = len(mat1), len(mat2)
-    if n == m:
-        temp1 = 0
-        temp2 = 0
-        for fila in mat1:
-            for valor in fila:
-                temp1 += 1
-        for fila in mat2:
-            for valor in fila:
-                temp2 += 1
-        if temp1 == temp2:
-            return True
-        else:
-            return False
-    else:
-        return False
+from metodosTemp import leer_matriz_enteros
 
 
 def suma_matrices(mat1: list, mat2: list) -> list:
@@ -77,25 +36,37 @@ def organizar(matriz: list, num_elementos: int):
     return matriz_final
 
 
-def main():
+def main(mensaje=''):
     matriz1 = []
     matriz2 = []
 
-    # Matriz 1
-    limpiarConsola()
-    print('Matriz 1')
-    meter_matrices(matriz1)
+    if mensaje != '':
+        print(mensaje)
 
-    # Matriz 2
-    limpiarConsola()
-    print('Matriz 2')
-    meter_matrices(matriz2)
+    # Comprobar mismo orden
+    try:
+        n = int(input('Ingrese el valor de filas en la matriz: '))
+        m = int(input('Ingrese el valor de columnas en la matriz: '))
+    except:
+        n = 1
+        m = 1
+    try:
+        # Matriz 1
+        limpiarConsola()
+        print('Matriz 1')
+        matriz1 = leer_matriz_enteros(n, m)
 
-    if (comprobacion_matrices_igual_orden(matriz1, matriz2)):
-        temp = suma_matrices(matriz1, matriz2)
-        print(f'La suma de la matriz A+B es: {temp}')
-    else:
-        print('ERROR: La suma de dos matrices solamente se puede realizar entre matrices del mismo orden')
+        # Matriz 2
+        limpiarConsola()
+        print('Matriz 2')
+        matriz2 = leer_matriz_enteros(n, m)
+
+        # Suma
+        suma = suma_matrices(matriz1, matriz2)
+        print(f'La suma de la matriz A+B es: {suma}')
+    except:
+        limpiarConsola()
+        main('ERROR_PROGRAMA_INTENTE_DE_NUEVO')
 
 
 if __name__ == '__main__':
