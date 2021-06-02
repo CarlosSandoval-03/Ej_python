@@ -17,9 +17,11 @@ def main():
     a = leer_matriz_enteros(n1, m1)
     b = int(input(f'Seleccione la columna a sumar (De 1 a {m1}): '))
     if b > m1:
+        limpiarConsola()
         print('Columna invalida, se tomara el maximo valor permitido')
         b = m1
     elif b < 0:
+        limpiarConsola()
         print('Columna invalida, se tomara el minimo valor permitido')
         b = 0
     total = suma_columna(a, b)
