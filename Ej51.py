@@ -1,5 +1,4 @@
-# Desarrollar un algoritmo que permita multiplicar dos matrices de numeros reales (enteros).
-from os import terminal_size
+# 51. Desarrollar un algoritmo que permita multiplicar dos matrices de numeros reales (enteros).
 from metodosTemp import limpiarConsola
 from metodosTemp import leer_matriz_enteros
 from Ej23 import sumaArreglo
