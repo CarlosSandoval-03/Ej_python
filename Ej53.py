@@ -27,7 +27,7 @@ def main():
         print('Fila invalida, se tomara el minimo valor permitido')
         b = 1
     total = suma_fila(a, b)
-    print(f'La suma de la columna {b} es: {total}')
+    print(f'La suma de la fila {b} es: {total}')
 
 
 if __name__ == '__main__':
