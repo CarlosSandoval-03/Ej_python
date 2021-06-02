@@ -23,7 +23,7 @@ def main():
     elif b < 0:
         limpiarConsola()
         print('Columna invalida, se tomara el minimo valor permitido')
-        b = 0
+        b = 1
     total = suma_columna(a, b)
     print(f'La suma de la columna {b} es: {total}')
 
