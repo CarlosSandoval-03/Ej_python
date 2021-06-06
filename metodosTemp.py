@@ -112,3 +112,10 @@ def comprobacion_matrices_igual_orden(mat1: list, mat2: list) -> bool:
             return False
     else:
         return False
+
+
+def matriz_cuadrada(n1:int, m1:int) -> bool:
+    if n1 == m1:
+        return True
+    else:
+        return False
