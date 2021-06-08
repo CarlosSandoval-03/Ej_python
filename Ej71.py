@@ -11,6 +11,7 @@ def conteo_cadena(caracter:str, cadena = 'Hola Mundo!') -> int:
 
 
 def main():
+    limpiarConsola()
     texto = str(input('Digite el texto a evaluar: '))
     caracter = str(input('Ingrese el caracter que desea contar: '))
     if len(caracter) > 1:
