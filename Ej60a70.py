@@ -137,33 +137,48 @@ def eleccion() -> int:
     return e
 
 
-def menu() -> str:
-    flag = True
-    while flag:
-        x = eleccion()
+def relacion() -> list:
+    return leer_matriz_enteros(int(input('Ingrese la cantidad de relaciones que desea: ')), 2)
 
 
-def main():
-    limpiarConsola()
-    '''
-    print('Matriz 1')
-    print('Ingrese la relacion para crear las matrices booleanas\n')
-    relacion = leer_matriz_enteros(int(input('Ingrese la cantidad de relaciones que desea: ')), 2)
+def matriz_binaria(relacion:list) -> list:
     array1 = nuevoMeterNumeros()
     array2 = nuevoMeterNumeros()
-    matriz1 = crear_matriz_binaria(array1, array2, relacion)
+    return crear_matriz_binaria(array1, array2, relacion)
    
+
+def recoleccion_datos() -> tuple:
+    e = eleccion()
+    if inSimple(e, [1,2]): # Solicita 2 matrices binaria
+        print('Matriz 1')
+        relacion1 = relacion()
+        matriz1 = matriz_binaria(relacion1)
+        
+        print('Matriz 2')
+        x = str(input('Desea mantener la relacion [y/n]: '))
+        if x.lower != 'y':
+            relacion2 = relacion()
+        else:
+            relacion2 = relacion1.copy()
+        matriz2 = matriz_binaria(relacion2)
+        return (e, matriz1, matriz2)
+    elif inSimple(e, [3]): # Solicita solo 1 relacion
+        relacion = relacion()
+        return (e, relacion)
+    elif inSimple(e, [4,5]): # Solicita 1 matriz y 1 relacion
+        print('Matriz 1')
+        relacion = relacion()
+        matriz1 = matriz_binaria(relacion)
+        return (e, matriz1, relacion)
+
+
+def main() -> None:
     limpiarConsola()
-
-    print('Matriz 2')
-    if str(input('Desea mantener la relacion [y/n]: ')).lower() != 'y':
-        print('Ingrese la relacion para crear las matrices booleanas\n')
-        relacion = leer_matriz_enteros(int(input('Ingrese la cantidad de relaciones que desea: ')), 2)
-    array3 = nuevoMeterNumeros()
-    array4 = nuevoMeterNumeros()
-    matriz2 = crear_matriz_binaria(array1, array2, relacion)
-
-    print(menu(matriz1, matriz2)) '''
+    data = recoleccion_datos()
+    eleccion = data[0]
+    mensaje = None
+    if eleccion == 1:
+        mensaje = f''
 
 
 if __name__ == '__main__':
