@@ -2,7 +2,7 @@
 ## Universidad Nacional de Colombia - Jonatan Perdomo
 ### Carlos Sandoval - Ingenieria de Sistemas
 ---
-Falta:
+Falta Programacion:
 
 	* Ej14
 	* Ej15
@@ -11,4 +11,8 @@ Falta:
 	* Ej56
 	* Ej57
 	* Ej58
+---
+Falta Documentacion:
+
+	* Desde Ej30
 
