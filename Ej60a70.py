@@ -108,37 +108,68 @@ def transitividad_binaria(matriz:list, relacion:list) -> bool:
 
 # Orden
 
-def orden_binaria(relacion:list) -> bool:
-    pass
+def orden_binaria(matriz:list, relacion:list) -> bool:
+    if not simetria_binaria(relacion) and reflexibilidad_binaria(matriz, relacion) and transitividad_binaria(matriz,relacion):
+        return True
+    return False
 
 # Equivalencia
 
-def equivalencia_binaria(relacion:list) -> bool:
-    pass
+def equivalencia_binaria(matriz:list, relacion:list) -> bool:
+    if reflexibilidad_binaria(matriz, relacion) and simetria_binaria(relacion) and transitividad_binaria(matriz, relacion):
+        return True
+    return False
 
 # Funcion
 
 def funcion_binaria(relacion:list) -> bool:
-    pass
+    valores_x = []
+
+    for i in range(len(relacion)):
+        x,y = relacion[i]
+        if not inSimple(x, valores_x):
+            valores_x.append(x)
+        else:
+            return False
+    return True
+
 
 # Inyectividad
 
 def inyectividad_binaria(relacion:list) -> bool:
-    pass
+    if not funcion_binaria(relacion):
+        return None
+    
+    valores_y = []
+
+    for i in range(len(relacion)):
+        x,y = relacion[i]
+        if not inSimple(y, valores_y):
+            valores_y.append(y)
+        else:
+            return False
+    return True
 
 # Sobreyectividad
 
 def sobreyectividad_binaria(relacion:list) -> bool:
-    pass
+    if not funcion_binaria(relacion):
+        return None
 
+    if not inyectividad_binaria(relacion):
+        return True
+    return False
+
+# Menu ________________________________________________
 
 def eleccion() -> int:
     e = int(input('Por favor seleccione la operacion a elegir:\n1.Union\n2.Interseccion\n3.Simetria\n4.Reflexibilidad\n5.Transitividad\n6.Orden\n7.Equivalencia\n8.Funcion\n9.Inyectividad\n10.Sobreyectividad\n11.Salir\nEleccion: '))
     return e
 
 
-def relacion() -> list:
-    return leer_matriz_enteros(int(input('Ingrese la cantidad de relaciones que desea: ')), 2)
+def crear_relacion() -> list:
+    temp = leer_matriz_enteros(int(input('Ingrese la cantidad de relaciones que desea: ')), 2)
+    return temp
 
 
 def matriz_binaria(relacion:list) -> list:
@@ -151,34 +182,71 @@ def recoleccion_datos() -> tuple:
     e = eleccion()
     if inSimple(e, [1,2]): # Solicita 2 matrices binaria
         print('Matriz 1')
-        relacion1 = relacion()
+        relacion1 = crear_relacion()
         matriz1 = matriz_binaria(relacion1)
         
         print('Matriz 2')
         x = str(input('Desea mantener la relacion [y/n]: '))
         if x.lower != 'y':
-            relacion2 = relacion()
+            relacion2 = crear_relacion()
         else:
             relacion2 = relacion1.copy()
         matriz2 = matriz_binaria(relacion2)
         return (e, matriz1, matriz2)
-    elif inSimple(e, [3]): # Solicita solo 1 relacion
-        relacion = relacion()
+    elif inSimple(e, [3, 8, 9, 10]): # Solicita solo 1 relacion
+        relacion = crear_relacion()
         return (e, relacion)
-    elif inSimple(e, [4,5]): # Solicita 1 matriz y 1 relacion
+    elif inSimple(e, [4, 5, 6, 7]): # Solicita 1 matriz y 1 relacion
         print('Matriz 1')
-        relacion = relacion()
+        relacion = crear_relacion()
         matriz1 = matriz_binaria(relacion)
         return (e, matriz1, relacion)
+    else:
+        return (e, None)
 
 
-def main() -> None:
+def main(mensaje_memoria = '') -> str:
     limpiarConsola()
+    
+    if mensaje_memoria != '':
+        print(mensaje_memoria,'\n\n')
+    
     data = recoleccion_datos()
     eleccion = data[0]
     mensaje = None
+
     if eleccion == 1:
-        mensaje = f''
+        mensaje = f'El resultado de la operacion "union" es: {union_binaria(data[1], data[2])}'
+        main(mensaje)
+    elif eleccion == 2:
+        mensaje = f'El resultado de la operacion "interseccion" es: {interseccion_binaria(data[1], data[2])}'
+        main(mensaje)
+    elif eleccion == 3:
+        mensaje = f'El resultado de la operacion "simetria" es: {"Verdadero" if simetria_binaria(data[1]) else "Falso"}'
+        main(mensaje)
+    elif eleccion == 4:
+        mensaje = f'El resultado de la operacion "reflexibilidad" es: {"Verdadero" if reflexibilidad_binaria(data[1], data[2]) else "Falso"}'
+        main(mensaje)
+    elif eleccion == 5:
+        mensaje = f'El resultado de la operacion "transitividad" es: {"Verdadero" if transitividad_binaria(data[1], data[2]) else "Falso"}'
+        main(mensaje)
+    elif eleccion == 6:
+        mensaje = f'El resultado de la operacion "orden" es: {"Verdadero" if orden_binaria(data[1], data[2]) else "Falso"}'
+        main(mensaje)
+    elif eleccion == 7:
+        mensaje = f'El resultado de la operacion "equivalencia" es: {"Verdadero" if equivalencia_binaria(data[1], data[2]) else "Falso"}'
+        main(mensaje)
+    elif eleccion == 8:
+        mensaje = f'El resultado de la operacion "funcion" es: {"Es una funcion" if funcion_binaria(data[1]) else "No es una funcion"}'
+        main(mensaje)
+    elif eleccion == 9:
+        mensaje = f'El resultado de la operacion "inyectividad" es: {"Es inyectiva" if inyectividad_binaria(data[1]) else "No es inyectiva"}'
+        main(mensaje)
+    elif eleccion == 10:
+        mensaje = f'El resultado de la operacion "sobreyectividad" es: {"Es sobreyectiva" if sobreyectividad_binaria(data[1]) else "No es sobreyectiva"}'
+        main(mensaje)
+    elif eleccion == 11:
+        print('Hasta la proxima!')
 
 
 if __name__ == '__main__':
