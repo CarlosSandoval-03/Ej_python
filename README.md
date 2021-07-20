@@ -15,4 +15,4 @@ Falta Programacion:
 
 Falta Documentacion:
 
-- [ ] Desde Ej50
+- [ ] Faltan ejercicios 47-48 y 56-58 (ya realizados)
