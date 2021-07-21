@@ -10,12 +10,9 @@ Falta Programacion:
 
 - [ ] Ej47
 - [ ] Ej48
-- [x] Ej56
-- [x] Ej57
-- [ ] Ej58
 
 ---
 
 Falta Documentacion:
 
-- [ ] Desde Ej30
+- [ ] Faltan ejercicios 47-48 y 56-58 (ya realizados)
